@@ -18,7 +18,7 @@ blood_fig.set_ylabel('Presión sistolica')
 blood_fig.set_title('Edad vs Presión sistolica')
 plot.show()
 
-# Test and Train Data
+# Split in Test and Train Data
 from sklearn.model_selection import train_test_split
 
 attributes = np.array(blood_data.drop(['Age'], 1))
