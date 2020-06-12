@@ -8,14 +8,14 @@ print(iris.info()) # ver la info
 print(iris.describe()) # ver la info
 print(iris.groupby('species').size()) # agrupar por especies
 
-# Sepalo Grafico
+
 sepalo = iris[iris.species == 'Iris-setosa'].plot(
     kind='scatter',
     x='sepal_length',
     y='sepal_width',
     color='blue',
     label='Setosa'
-)
+)  # Sepalo Grafico
 
 iris[iris.species == 'Iris-versicolor'].plot(
     kind='scatter',
@@ -82,11 +82,11 @@ attributes_train, attributes_test, labels_train, labels_test = train_test_split(
     labels,
     test_size=0.2
 )
-print(attributes_train.shape[0])
+print('Datos de entrenamiento: {}'.format(attributes_train.shape[0]))
+print('Datos de prueba: {}'.format(attributes_test.shape[0]))
 
 # Modelar con Logistic regresion
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
 
 algoritmo = LogisticRegression()
 algoritmo.fit(attributes_train, labels_train)
@@ -95,6 +95,7 @@ labels_predict = algoritmo.predict(attributes_test)
 print('Presición regresión logística: {}'.format(algoritmo.score(attributes_train, labels_train)))
 
 # Modelar con Support vector machine
+from sklearn.svm import SVC
 svc = SVC()
 svc.fit(attributes_train, labels_train)
 labels2_predict = svc.predict(attributes_test)
